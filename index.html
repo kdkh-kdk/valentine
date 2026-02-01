@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-
-<script>
-  const password = "Chinnu";  // <-- yaha apna secret password daalo
-
-  const userPass = prompt("Enter Password My Baby 💖");
-
-  if (userPass !== password) {
-    document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Access Denied ❌</h2>";
-  }
-</script>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,6 +17,7 @@
 
     .box {
       text-align: center;
+      display: none; /* 🔑 VERY IMPORTANT */
     }
 
     h1 {
@@ -67,37 +57,51 @@
 </head>
 
 <body>
-  <div class="box">
-    <marquee behavior="scroll" direction="left" scrollamount="10">
-  <h1>Will you be my Valentine My Baby? ❤️</h1>
-</marquee>
 
+<script>
+  const password = "Chinnu";
+  const userPass = prompt("Enter Password My Baby 💖");
 
-    <button id="yes">Yes</button>
-    <button id="no">No</button>
+  if (userPass === password) {
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".box").style.display = "block";
+    });
+  } else {
+    document.body.innerHTML =
+      "<h2 style='text-align:center;margin-top:50px;'>Access Denied ❌</h2>";
+  }
+</script>
 
-    <div id="gif">
-      <h2>You had no choice 😂💞</h2>
-      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif
-" alt="Funny Gif">
-    </div>
+<div class="box">
+  <marquee behavior="scroll" direction="left" scrollamount="8">
+    <h1>Will you be my Valentine My Baby? ❤️</h1>
+  </marquee>
+
+  <button id="yes">Yes</button>
+  <button id="no">No</button>
+
+  <div id="gif">
+    <h2>You had no choice 😂💞</h2>
+    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Funny Gif">
   </div>
+</div>
 
-  <script>
-    const noButton = document.getElementById("no");
-    const yesButton = document.getElementById("yes");
-    const gifDiv = document.getElementById("gif");
+<script>
+  const noButton = document.getElementById("no");
+  const yesButton = document.getElementById("yes");
+  const gifDiv = document.getElementById("gif");
 
-    noButton.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - 100);
-      const y = Math.random() * (window.innerHeight - 50);
-      noButton.style.left = x + "px";
-      noButton.style.top = y + "px";
-    });
+  noButton.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+  });
 
-    yesButton.addEventListener("click", () => {
-      gifDiv.style.display = "block";
-    });
-  </script>
+  yesButton.addEventListener("click", () => {
+    gifDiv.style.display = "block";
+  });
+</script>
+
 </body>
 </html>
